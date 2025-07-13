@@ -2,58 +2,111 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Interactiva</title>
+  <title>Malla Interactiva - Técnico en Enfermería</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-    h1 { color: #2c3e50; }
-    .semestre { margin-bottom: 30px; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .semestre {
+      background: #ffffff;
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 800px;
+    }
+    .semestre h2 {
+      border-left: 5px solid #27ae60;
+      padding-left: 10px;
+      color: #1e8449;
+    }
     .asignatura {
-      padding: 10px;
-      background: white;
-      border: 1px solid #ccc;
-      margin: 5px 0;
+      background: #ecf0f1;
+      padding: 10px 15px;
+      margin: 8px 0;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
     .asignatura:hover {
-      background: #e0f7fa;
+      background: #d1f2eb;
     }
   </style>
 </head>
 <body>
-  <h1>Malla Curricular Interactiva</h1>
-  <div id="contenedor"></div>
 
-  <script>
-    const malla = {
-      "Primer Semestre": [
-        { nombre: "Matemáticas I", descripcion: "Álgebra básica y funciones." },
-        { nombre: "Lenguaje", descripcion: "Lectura crítica y redacción." }
-      ],
-      "Segundo Semestre": [
-        { nombre: "Física I", descripcion: "Mecánica clásica." },
-        { nombre: "Programación", descripcion: "Fundamentos de la codificación." }
-      ]
-    };
+<h1>Malla Curricular - Técnico en Enfermería</h1>
+<div id="contenedor"></div>
 
-    const contenedor = document.getElementById("contenedor");
+<script>
+  const malla = {
+    "I SEMESTRE": [
+      { nombre: "Introducción al Sistema Sanitario Chileno", descripcion: "" },
+      { nombre: "Primeros Auxilios", descripcion: "" },
+      { nombre: "Bioseguridad y Control de IAAS", descripcion: "" },
+      { nombre: "Anatomía y Funcionamiento Humano", descripcion: "" },
+      { nombre: "Habilidades Transversales para la Empleabilidad", descripcion: "" },
+      { nombre: "Contexto Cultural", descripcion: "" },
+      { nombre: "Resolución de Problemas", descripcion: "" }
+    ],
+    "II SEMESTRE": [
+      { nombre: "Administración de Medicamentos", descripcion: "" },
+      { nombre: "Cuidados del Paciente Senescente", descripcion: "" },
+      { nombre: "Técnicas y Procedimientos de Enfermería I", descripcion: "" },
+      { nombre: "Práctica Clínica I Hospitalización", descripcion: "" },
+      { nombre: "Emprendimiento y Liderazgo", descripcion: "" },
+      { nombre: "Proyecto de Innovación", descripcion: "" }
+    ],
+    "III SEMESTRE": [
+      { nombre: "APS y Atención Intercultural", descripcion: "" },
+      { nombre: "Cuidados de Enfermería de la Mujer", descripcion: "" },
+      { nombre: "Cuidados y Procedimientos de Enfermería II", descripcion: "" },
+      { nombre: "Práctica Clínica II Atención Ambulatoria", descripcion: "" },
+      { nombre: "Cuidados de Enfermería Pediátricos y Adolescente", descripcion: "" },
+      { nombre: "Cultura y Desarrollo Sostenible", descripcion: "" }
+    ],
+    "IV SEMESTRE": [
+      { nombre: "Cuidados de Enfermería en Salud Mental e Interacción Humana", descripcion: "" },
+      { nombre: "Cuidados de Enfermería en Urgencias", descripcion: "" },
+      { nombre: "Rol del TENS en el Equipo de Salud", descripcion: "" },
+      { nombre: "Práctica Clínica III Centros de Salud Intercultural", descripcion: "" },
+      { nombre: "Uso de TICS en Salud", descripcion: "" },
+      { nombre: "Transferencia Tecnológica", descripcion: "" }
+    ],
+    "V SEMESTRE": [
+      { nombre: "Internado", descripcion: "" },
+      { nombre: "Portafolio de TDIGITAL", descripcion: "" }
+    ]
+  };
 
-    for (const [semestre, asignaturas] of Object.entries(malla)) {
-      const divSemestre = document.createElement("div");
-      divSemestre.classList.add("semestre");
-      divSemestre.innerHTML = `<h2>${semestre}</h2>`;
-      
-      asignaturas.forEach(asig => {
-        const divAsig = document.createElement("div");
-        divAsig.classList.add("asignatura");
-        divAsig.innerText = asig.nombre;
-        divAsig.onclick = () => alert(`${asig.nombre}\n\n${asig.descripcion}`);
-        divSemestre.appendChild(divAsig);
-      });
+  const contenedor = document.getElementById("contenedor");
 
-      contenedor.appendChild(divSemestre);
-    }
-  </script>
+  for (const [semestre, asignaturas] of Object.entries(malla)) {
+    const divSemestre = document.createElement("div");
+    divSemestre.classList.add("semestre");
+    divSemestre.innerHTML = `<h2>${semestre}</h2>`;
+    
+    asignaturas.forEach(asig => {
+      const divAsig = document.createElement("div");
+      divAsig.classList.add("asignatura");
+      divAsig.innerText = asig.nombre;
+      divAsig.onclick = () => {
+        const detalle = asig.descripcion || "No hay descripción disponible.";
+        alert(`${asig.nombre}\n\n${detalle}`);
+      };
+      divSemestre.appendChild(divAsig);
+    });
+
+    contenedor.appendChild(divSemestre);
+  }
+</script>
+
 </body>
 </html>
