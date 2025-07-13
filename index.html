@@ -28,16 +28,20 @@
       color: #1e8449;
     }
     .asignatura {
-      background: #ecf0f1;
       padding: 10px 15px;
       margin: 8px 0;
       border-radius: 6px;
       cursor: pointer;
       transition: 0.3s;
+      border-left: 6px solid transparent;
     }
     .asignatura:hover {
-      background: #d1f2eb;
+      opacity: 0.9;
     }
+    .salud       { background: #d6f5ff; border-color: #2e86c1; }
+    .transversal { background: #e9fce9; border-color: #27ae60; }
+    .tecnologia  { background: #fff9d6; border-color: #f1c40f; }
+    .cultural    { background: #f3e6ff; border-color: #9b59b6; }
   </style>
 </head>
 <body>
@@ -48,41 +52,41 @@
 <script>
   const malla = {
     "I SEMESTRE": [
-      { nombre: "Introducción al Sistema Sanitario Chileno", descripcion: "" },
-      { nombre: "Primeros Auxilios", descripcion: "" },
-      { nombre: "Bioseguridad y Control de IAAS", descripcion: "" },
-      { nombre: "Anatomía y Funcionamiento Humano", descripcion: "" },
-      { nombre: "Habilidades Transversales para la Empleabilidad", descripcion: "" },
-      { nombre: "Contexto Cultural", descripcion: "" },
-      { nombre: "Resolución de Problemas", descripcion: "" }
+      { nombre: "🩺 Introducción al Sistema Sanitario Chileno", descripcion: "Conoce cómo está organizado el sistema de salud en Chile.", categoria: "salud" },
+      { nombre: "🩺 Primeros Auxilios", descripcion: "Manejo inicial de emergencias y urgencias básicas.", categoria: "salud" },
+      { nombre: "🧪 Bioseguridad y Control de IAAS", descripcion: "Prevención de infecciones asociadas a la atención de salud.", categoria: "salud" },
+      { nombre: "🩻 Anatomía y Funcionamiento Humano", descripcion: "Estudia los sistemas del cuerpo humano y su funcionamiento.", categoria: "salud" },
+      { nombre: "🌱 Habilidades Transversales para la Empleabilidad", descripcion: "Desarrollo de habilidades blandas y preparación para el mundo laboral.", categoria: "transversal" },
+      { nombre: "🌍 Contexto Cultural", descripcion: "Análisis de factores culturales que influyen en la atención de salud.", categoria: "cultural" },
+      { nombre: "🧠 Resolución de Problemas", descripcion: "Estrategias para enfrentar y resolver situaciones complejas.", categoria: "transversal" }
     ],
     "II SEMESTRE": [
-      { nombre: "Administración de Medicamentos", descripcion: "" },
-      { nombre: "Cuidados del Paciente Senescente", descripcion: "" },
-      { nombre: "Técnicas y Procedimientos de Enfermería I", descripcion: "" },
-      { nombre: "Práctica Clínica I Hospitalización", descripcion: "" },
-      { nombre: "Emprendimiento y Liderazgo", descripcion: "" },
-      { nombre: "Proyecto de Innovación", descripcion: "" }
+      { nombre: "🩺 Administración de Medicamentos", descripcion: "Principios y técnicas seguras de administración de fármacos.", categoria: "salud" },
+      { nombre: "🩺 Cuidados del Paciente Senescente", descripcion: "Atención integral al adulto mayor.", categoria: "salud" },
+      { nombre: "🩺 Técnicas y Procedimientos de Enfermería I", descripcion: "Procedimientos básicos en el cuidado del paciente hospitalizado.", categoria: "salud" },
+      { nombre: "🩺 Práctica Clínica I: Hospitalización", descripcion: "Aplicación práctica en entornos clínicos hospitalarios.", categoria: "salud" },
+      { nombre: "🌱 Emprendimiento y Liderazgo", descripcion: "Fomento del liderazgo y la gestión en salud.", categoria: "transversal" },
+      { nombre: "💡 Proyecto de Innovación", descripcion: "Diseño y ejecución de proyectos innovadores en salud.", categoria: "tecnologia" }
     ],
     "III SEMESTRE": [
-      { nombre: "APS y Atención Intercultural", descripcion: "" },
-      { nombre: "Cuidados de Enfermería de la Mujer", descripcion: "" },
-      { nombre: "Cuidados y Procedimientos de Enfermería II", descripcion: "" },
-      { nombre: "Práctica Clínica II Atención Ambulatoria", descripcion: "" },
-      { nombre: "Cuidados de Enfermería Pediátricos y Adolescente", descripcion: "" },
-      { nombre: "Cultura y Desarrollo Sostenible", descripcion: "" }
+      { nombre: "🌍 APS y Atención Intercultural", descripcion: "Atención primaria de salud con enfoque intercultural.", categoria: "cultural" },
+      { nombre: "🩺 Cuidados de Enfermería de la Mujer", descripcion: "Atención durante el ciclo vital de la mujer.", categoria: "salud" },
+      { nombre: "🩺 Cuidados y Procedimientos de Enfermería II", descripcion: "Técnicas de atención en niveles ambulatorios.", categoria: "salud" },
+      { nombre: "🩺 Práctica Clínica II: Atención Ambulatoria", descripcion: "Experiencia clínica en centros ambulatorios.", categoria: "salud" },
+      { nombre: "🩺 Cuidados Pediátricos y Adolescente", descripcion: "Atención a niños y adolescentes en diferentes contextos.", categoria: "salud" },
+      { nombre: "🌍 Cultura y Desarrollo Sostenible", descripcion: "Relación entre cultura, medio ambiente y salud.", categoria: "cultural" }
     ],
     "IV SEMESTRE": [
-      { nombre: "Cuidados de Enfermería en Salud Mental e Interacción Humana", descripcion: "" },
-      { nombre: "Cuidados de Enfermería en Urgencias", descripcion: "" },
-      { nombre: "Rol del TENS en el Equipo de Salud", descripcion: "" },
-      { nombre: "Práctica Clínica III Centros de Salud Intercultural", descripcion: "" },
-      { nombre: "Uso de TICS en Salud", descripcion: "" },
-      { nombre: "Transferencia Tecnológica", descripcion: "" }
+      { nombre: "🩺 Salud Mental e Interacción Humana", descripcion: "Cuidados y apoyo emocional en la atención clínica.", categoria: "salud" },
+      { nombre: "🩺 Cuidados en Urgencias", descripcion: "Atención a pacientes críticos y situaciones de emergencia.", categoria: "salud" },
+      { nombre: "🩺 Rol del TENS en el Equipo de Salud", descripcion: "Funciones, deberes y relaciones del TENS con otros profesionales.", categoria: "salud" },
+      { nombre: "🩺 Práctica Clínica III: Salud Intercultural", descripcion: "Experiencia práctica en centros con diversidad cultural.", categoria: "salud" },
+      { nombre: "💻 Uso de TICS en Salud", descripcion: "Tecnologías de la información aplicadas a la atención de pacientes.", categoria: "tecnologia" },
+      { nombre: "💻 Transferencia Tecnológica", descripcion: "Aplicación de nuevas herramientas y soluciones en salud.", categoria: "tecnologia" }
     ],
     "V SEMESTRE": [
-      { nombre: "Internado", descripcion: "" },
-      { nombre: "Portafolio de TDIGITAL", descripcion: "" }
+      { nombre: "🩺 Internado", descripcion: "Práctica profesional supervisada en un centro clínico.", categoria: "salud" },
+      { nombre: "💻 Portafolio TDIGITAL", descripcion: "Desarrollo de un portafolio digital de experiencias y competencias.", categoria: "tecnologia" }
     ]
   };
 
@@ -95,10 +99,10 @@
     
     asignaturas.forEach(asig => {
       const divAsig = document.createElement("div");
-      divAsig.classList.add("asignatura");
+      divAsig.classList.add("asignatura", asig.categoria);
       divAsig.innerText = asig.nombre;
       divAsig.onclick = () => {
-        const detalle = asig.descripcion || "No hay descripción disponible.";
+        const detalle = asig.descripcion || "Sin descripción disponible.";
         alert(`${asig.nombre}\n\n${detalle}`);
       };
       divSemestre.appendChild(divAsig);
